@@ -1,0 +1,182 @@
+[
+    {
+        "name":"barcelona",
+        "logo":"https://crests.football-data.org/81.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Real Madrid",
+        "logo":"https://crests.football-data.org/86.png",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Atletico Madrid",
+        "logo":"https://crests.football-data.org/78.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Real Sociedad",
+        "logo":"https://crests.football-data.org/92.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Real Betis",
+        "logo":"https://crests.football-data.org/90.png",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Villareal CF",
+        "logo":"https://crests.football-data.org/94.png",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Rayo Vallecano",
+        "logo":"https://crests.football-data.org/87.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"CA Osasuna",
+        "logo":"https://crests.football-data.org/79.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Athletic Club",
+        "logo":"https://crests.football-data.org/77.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Rcd Mallorca",
+        "logo":"https://crests.football-data.org/89.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Celta Vigo",
+        "logo":"https://crests.football-data.org/558.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Girona Fc",
+        "logo":"https://crests.football-data.org/298.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Sevilla Fc",
+        "logo":"https://crests.football-data.org/559.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Real Valladolid CF",
+        "logo":"https://crests.football-data.org/250.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Espanyol",
+        "logo":"https://crests.football-data.org/80.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Cadiz Fc",
+        "logo":"https://crests.football-data.org/264.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Valencia CF",
+        "logo":"https://crests.football-data.org/95.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Getafe CF",
+        "logo":"https://crests.football-data.org/82.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Almeria",
+        "logo":"https://crests.football-data.org/267.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    },
+    {
+        "name":"Elche CF",
+        "logo":"https://crests.football-data.org/285.svg",
+        "matches":20,
+        "win":20,
+        "lost":1,
+        "draw":1,
+        "points":55
+    }
+]

@@ -1,0 +1,8 @@
+.header-top ul li a {
+    font-size: 15px;
+}
+.logo {
+    clip-path: polygon(0 0, 100% 0, 79% 100%, 0% 100%);
+    background-color: #3155a2;
+    background-position: left;
+}

@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Group utilization  */
+.container {
+    @apply w-11/12 mx-auto
+} 
