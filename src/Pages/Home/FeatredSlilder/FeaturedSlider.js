@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useDispatch, useSelector } from 'react-redux'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -9,25 +8,10 @@ import 'swiper/css/pagination'
 
 // import required modules
 import { Autoplay, Pagination } from 'swiper'
-import { getFeaturedArticles } from '../../../redux/actionCreators/articleActions'
 import { Link } from 'react-router-dom'
+import GetDate from '../../../components/DateTime/GetDate'
 
-const FeaturedSlider = () => {
-  const dispatch = useDispatch()
-  const { loading, data } = useSelector((state) => state.featuredArticles)
-  useEffect(() => {
-    dispatch(getFeaturedArticles())
-  }, [dispatch])
-  const getDate = (iso) => {
-    const date = new Date(iso)
-    const longDate = date.toLocaleDateString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    })
-    return longDate
-  }
+const FeaturedSlider = ({ data }) => {
   return (
     <>
       <Swiper
@@ -63,7 +47,7 @@ const FeaturedSlider = () => {
               >
                 {article.title}
               </Link>
-              <p className='text-xs'>{getDate(article.createdAt)}</p>
+              <p className='text-xs'>{GetDate(article.createdAt)}</p>
             </div>
           </SwiperSlide>
         ))}

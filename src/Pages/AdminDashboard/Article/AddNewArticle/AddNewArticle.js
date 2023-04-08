@@ -36,14 +36,13 @@ const AddNewArticle = () => {
       [name]: files ? files[0] : value,
     }))
   }
-  const [imgUrl, setImgUrl] = useState('')
   const imgbbKey = process.env.REACT_APP_IMGBB_KEY
   const handleSubmit = (event) => {
     event.preventDefault()
 
     const imgData = new FormData()
     imgData.append('image', formData.thumbnail)
-    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imgbbKey}`
+    const url = `https://api.imgbb.com/1/upload?key=${imgbbKey}`
     fetch(url, {
       method: 'POST',
       body: imgData,

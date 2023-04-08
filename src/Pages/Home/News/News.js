@@ -1,30 +1,7 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
 import NewsCard from '../../../components/cards/NewsCard'
-import Loading from '../../../components/Loading/Loading'
-import {
-  getEightArticles,
-  getFirstTwoArticle,
-  getTwoArticleBottom,
-} from '../../../redux/actionCreators/articleActions'
 
-const News = () => {
-  const dispatch = useDispatch()
-  const { loading, data } = useSelector((state) => state.firstTwoArticle)
-  const { loading: bottomTwoArticleLoading, data: bottomTwoData } = useSelector(
-    (state) => state.twoArticleBottom
-  )
-  const { loading: eightLoading, data: eightData } = useSelector(
-    (state) => state.eightArticles
-  )
-  useEffect(() => {
-    dispatch(getFirstTwoArticle())
-    dispatch(getEightArticles())
-    dispatch(getTwoArticleBottom())
-  }, [dispatch])
-  if (loading || eightLoading || bottomTwoArticleLoading) {
-    return <Loading />
-  }
+const News = ({ data, bottomTwoData, eightData }) => {
   const orderLast = 'order-last'
   return (
     <div className='my-5'>

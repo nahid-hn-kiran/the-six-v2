@@ -1,24 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation, Keyboard, Autoplay } from 'swiper'
-import { getHeroslider } from '../../../redux/actionCreators/sliderActions'
-import Loading from '../../../components/Loading/Loading'
 
-const HeroSlider = () => {
-  const dispatch = useDispatch()
-  const { loading, data, message } = useSelector((state) => state.heroSlider)
-  useEffect(() => {
-    dispatch(getHeroslider())
-  }, [dispatch])
-  if (loading) {
-    return <Loading />
-  }
+const HeroSlider = ({ data, message }) => {
   return (
     <section>
       {message && (

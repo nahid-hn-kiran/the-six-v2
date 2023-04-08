@@ -1,27 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useDispatch, useSelector } from 'react-redux'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Pagination } from 'swiper'
-import { getUpcomingMatches } from '../../../redux/actionCreators/upcomingMatchesActions'
-import Loading from '../../../components/Loading/Loading'
 import GetDate from '../../../components/DateTime/GetDate'
 import GetTime from '../../../components/DateTime/GetTime'
 
-const ScheduleSlider = () => {
-  const dispatch = useDispatch()
-  const { loading, data, message } = useSelector(
-    (state) => state.upcomingMatches
-  )
-  useEffect(() => {
-    dispatch(getUpcomingMatches())
-  }, [dispatch])
-  if (loading) {
-    return <Loading />
-  }
+const ScheduleSlider = ({ data, message }) => {
   return (
     <section className='my-5 text-black text-sm'>
       {message && <p className='text-red-600 text-center'>{message}</p>}
