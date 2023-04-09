@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Loading from '../../../components/Loading/Loading'
 import { login } from '../../../redux/actionCreators/userActions'
+import Spinner from '../../../components/Loading/Spinner'
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -63,7 +63,7 @@ const Login = () => {
                 </a>
               </label>
             </div>
-            {loading && <Loading />}
+            {loading && <Spinner />}
             <div className='form-control mt-6'>
               <button className='btn btn-primary'>Login</button>
             </div>

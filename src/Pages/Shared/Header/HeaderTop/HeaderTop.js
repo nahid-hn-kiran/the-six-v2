@@ -65,9 +65,11 @@ const HeaderTop = () => {
                 >
                   Logout
                 </button>
-                <Link className='btn btn-accent' to='/admin/dashboard'>
-                  Dashboard
-                </Link>
+                {data.user.role === 'admin' && (
+                  <Link className='btn btn-accent' to='/admin/dashboard'>
+                    Admin dashboard
+                  </Link>
+                )}
               </>
             ) : (
               <>
@@ -109,9 +111,11 @@ const HeaderTop = () => {
               >
                 Logout
               </button>
-              <Link className='btn btn-accent' to='/admin/dashboard'>
-                Dashboard
-              </Link>
+              {data.user.role === 'admin' && (
+                <Link className='btn btn-accent' to='/admin/dashboard'>
+                  Admin dashboard
+                </Link>
+              )}
             </>
           ) : (
             <>

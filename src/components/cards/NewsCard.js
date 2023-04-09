@@ -9,16 +9,16 @@ import htmlToText from 'html-react-parser'
 const NewsCard = ({ classess, orderClass, article }) => {
   return (
     <div className={`${classess} shadow-xl border gap-6 text-sm`}>
-      <Link to={`/article/${article?._id}`}>
+      <Link className={`${orderClass}`} to={`/article/${article?._id}`}>
         <img
           src={article?.thumbnail}
           alt={article?.title}
-          className={`${orderClass} w-full h-full`}
+          className={`w-full`}
         />
       </Link>
       <div className='flex flex-col justify-between p-4'>
         <div className='flex flex-col gap-1'>
-          <h5 className='text-red-600'>
+          <h5 className='text-red-600 cursor-pointer'>
             {article.category ? article.category : <span>Fifa News</span>}
           </h5>
           <Link

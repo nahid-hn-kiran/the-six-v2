@@ -59,10 +59,10 @@ const AddNewArticle = () => {
             article: content,
           }
           dispatch(addArticle(theArticle))
+          setFormData(initialFormData)
+          setContent('')
         }
       })
-    setFormData(initialFormData)
-    setContent('')
   }
   if (loading || postLoading) {
     return <Loading />
@@ -125,10 +125,10 @@ const AddNewArticle = () => {
             required
             className='select select-bordered w-full max-w-xs'
           >
-            <option>Select category</option>
+            <option disabled>Select category</option>
             <option>Football</option>
             <option>Soccer</option>
-            <option>Tenis</option>
+            <option>Tennis</option>
             <option>Cricket</option>
             <option defaultValue>Sports</option>
           </select>

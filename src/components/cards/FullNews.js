@@ -63,7 +63,6 @@ const FullNews = () => {
                 src={data?.data?.thumbnail}
                 alt={data?.data?.title}
                 className='w-full'
-                style={{ height: '500px' }}
               />
               <p className='text-xs m-2'>{data?.data?.thumbnailTitle}</p>
             </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { register } from '../../../redux/actionCreators/userActions'
 import { useDispatch, useSelector } from 'react-redux'
-import Loading from '../../../components/Loading/Loading'
+import Spinner from '../../../components/Loading/Spinner'
 
 const Register = () => {
   const [checked, setChecked] = useState(false)
@@ -110,7 +110,7 @@ const Register = () => {
               )}
             </p>
             <p className='text-red-600 my-3'>{!success && message}</p>
-            {loading && <Loading />}
+            {loading && <Spinner />}
             <div className='form-control mt-6 modal-action'>
               <button
                 htmlFor='register-modal'

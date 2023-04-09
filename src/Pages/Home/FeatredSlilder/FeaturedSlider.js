@@ -43,7 +43,7 @@ const FeaturedSlider = ({ data }) => {
             <div className='flex flex-col gap-4 text-white absolute bottom-2 left-5'>
               <Link
                 to={`/article/${article?._id}`}
-                className='slider-title text-lg lg:text-3xl font-semibold lg:font-bold'
+                className='slider-title text-blue-400 text-lg lg:text-3xl font-semibold lg:font-bold'
               >
                 {article.title}
               </Link>
