@@ -30,16 +30,29 @@ const AddHeroSlider = () => {
     }))
   }
 
+  const imgbbKey = process.env.REACT_APP_IMGBB_KEY
   const handleAddTag = (e) => {
     e.preventDefault()
-    console.log(formData)
-    const theFormData = new FormData()
-    theFormData.append('title', formData.name)
-    theFormData.append('description', formData.description)
-    theFormData.append('thumbnail', formData.thumbnail)
-    theFormData.append('url', formData.url)
-    dispatch(postHeroSlider(theFormData))
-    // setFormData(initialFormData)
+    const imgData = new FormData()
+    imgData.append('image', formData.thumbnail)
+    const url = `https://api.imgbb.com/1/upload?key=${imgbbKey}`
+    fetch(url, {
+      method: 'POST',
+      body: imgData,
+    })
+      .then((res) => res.json())
+      .then((bbData) => {
+        if (bbData.success) {
+          const theSlider = {
+            title: formData.name,
+            description: formData.description,
+            thumbnail: bbData.data.url,
+            url: formData.url,
+          }
+          dispatch(postHeroSlider(theSlider))
+          setFormData(initialFormData)
+        }
+      })
   }
   const labels = {
     name: 'Slider title',

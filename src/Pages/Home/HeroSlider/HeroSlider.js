@@ -48,7 +48,7 @@ const HeroSlider = ({ data, message }) => {
               <p className='text-black'>
                 {slider?.length > 15 ? slider?.content + '..' : slider?.content}
               </p>
-              <Link to={slider?.postUrl} className='btn btn-primary'>
+              <Link to={slider?.url} className='btn btn-primary'>
                 More Info
               </Link>
             </div>

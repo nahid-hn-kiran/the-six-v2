@@ -11,9 +11,11 @@ import {
 export const postHeroSlider = (slider) => async (dispatch) => {
   try {
     dispatch({ type: ADD_HERO_SLIDER_REQUIEST })
+    const token = localStorage.getItem('token')
+
     const config = {
       headers: {
-        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`,
       },
     }
     await axios.post(

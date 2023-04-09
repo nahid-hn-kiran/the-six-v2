@@ -71,7 +71,6 @@ const Home = () => {
   return (
     <div>
       <HeroSlider data={heroSlider} message={heroSliderMessage} />
-      <ScheduleSlider data={scheduleData} message={scheduleMessage} />
       <section className='grid grid-cols-1 lg:grid-cols-3 container p-5 gap-5'>
         <div className='lg:col-span-2 border'>
           <div className='border-t-8 border-indigo-700'>

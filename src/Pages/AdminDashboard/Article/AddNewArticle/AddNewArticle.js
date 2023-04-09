@@ -125,9 +125,9 @@ const AddNewArticle = () => {
             required
             className='select select-bordered w-full max-w-xs'
           >
-            <option disabled>Select category</option>
+            <option>Select category</option>
             <option>Football</option>
-            <option>Soccer</option>
+            <option>Basketball</option>
             <option>Tennis</option>
             <option>Cricket</option>
             <option defaultValue>Sports</option>
