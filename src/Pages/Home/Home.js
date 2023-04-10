@@ -71,8 +71,8 @@ const Home = () => {
   return (
     <div>
       <HeroSlider data={heroSlider} message={heroSliderMessage} />
-      <section className='grid grid-cols-1 lg:grid-cols-3 container p-5 gap-5'>
-        <div className='lg:col-span-2 border'>
+      <section className='grid grid-cols-1 lg:grid-cols-3 container my-5 gap-5'>
+        <div className='lg:col-span-2'>
           <div className='border-t-8 border-indigo-700'>
             <h2 className='text-2xl my-3 ml-2'>Featured News</h2>
             <>

@@ -58,9 +58,10 @@ const Login = () => {
               />
               <p className='text-red-600 my-3'>{!success && message}</p>
               <label className='label'>
-                <a href='/' className='label-text-alt link link-hover'>
-                  Forgot password?
-                </a>
+                <sm>Admin: nahidhasan2g@gmail.com</sm>
+              </label>
+              <label>
+                <sm>Admin pass: hasan1234@A</sm>
               </label>
             </div>
             {loading && <Spinner />}

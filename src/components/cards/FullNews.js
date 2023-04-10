@@ -19,6 +19,7 @@ import Loading from '../Loading/Loading'
 import Newsletter from '../Newsletter/Newsletter'
 import PopularPosts from '../PopularPosts/PopularPosts'
 import htmlToText from 'html-react-parser'
+import Spinner from '../Loading/Spinner'
 
 const FullNews = () => {
   const dispatch = useDispatch()
@@ -109,11 +110,11 @@ const FullNews = () => {
               <div className='flex flex-col gap-4 md:flex-row justify-between items-center'>
                 <div className='flex flex-wrap gap-2'>
                   {data?.data?.tags &&
-                    data.data.tags
-                      .split(',')
-                      .map((tag) => (
-                        <button className='btn btn-outline'>{tag}</button>
-                      ))}
+                    data.data.tags.split(',').map((tag) => (
+                      <button key={tag} className='btn btn-outline'>
+                        {tag}
+                      </button>
+                    ))}
                 </div>
                 <ul className='flex flex-wrap gap-3'>
                   <li>
@@ -149,7 +150,7 @@ const FullNews = () => {
                   placeholder='Type here'
                   className='input input-bordered input-lg w-full max-w-lg'
                 />
-                {commentLoading && <Loading />}
+                {commentLoading && <Spinner />}
                 <p>
                   <button type='submit' className='btn my-2'>
                     Post Comment

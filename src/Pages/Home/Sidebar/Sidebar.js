@@ -5,12 +5,18 @@ import LaLigaTable from './LaLigaTable/LaLigaTable'
 import PremierLeagueTable from './PremierLeagueTable/PremierLeagueTable'
 import SerieATable from './SerieAATable/SerieATable'
 import UpcomingMatches from './UpcomingMatches/UpcomingMatches'
+import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
+  const { loading: articlLoading, data: articles } = useSelector(
+    (state) => state.featuredArticles
+  )
   return (
     <div className='flex flex-col gap-8'>
       <LaLigaTable />
-      <PopularPosts />
+      <>
+        <PopularPosts articles={articles} />
+      </>
       <PremierLeagueTable />
       <>
         <img

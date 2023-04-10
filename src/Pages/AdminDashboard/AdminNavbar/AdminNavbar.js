@@ -20,15 +20,6 @@ const AdminNavbar = () => {
           The Six
         </Link>
       </div>
-      <div className='navbar-center'>
-        <div className='form-control'>
-          <input
-            type='text'
-            placeholder='Search'
-            className='input input-bordered'
-          />
-        </div>
-      </div>
       <div className='navbar-end'>
         <div className='dropdown dropdown-end'>
           <label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
