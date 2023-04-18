@@ -16,6 +16,9 @@ import {
   REGISTER_USER_FAIL,
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
+  UDPATE_USER_ROLE_FAIL,
+  UDPATE_USER_ROLE_REQUIEST,
+  UDPATE_USER_ROLE_SUCCESS,
 } from '../actionTypes/actionTypes'
 
 export const registerUserReducer = (state = {}, action) => {
@@ -81,6 +84,19 @@ export const getAllAdminReducer = (state = {}, action) => {
     case ALL_ADMIN_SUCCESS:
       return { loading: false, admins: action.payload }
     case ALL_ADMIN_FAIL:
+      return { loading: false, message: action.payload }
+    default:
+      return state
+  }
+}
+
+export const updateUserRolereducer = (state = {}, action) => {
+  switch (action.type) {
+    case UDPATE_USER_ROLE_REQUIEST:
+      return { loading: true }
+    case UDPATE_USER_ROLE_SUCCESS:
+      return { loading: false, success: true }
+    case UDPATE_USER_ROLE_FAIL:
       return { loading: false, message: action.payload }
     default:
       return state

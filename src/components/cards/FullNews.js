@@ -17,7 +17,6 @@ import GetDate from '../DateTime/GetDate'
 import GetTime from '../DateTime/GetTime'
 import Loading from '../Loading/Loading'
 import Newsletter from '../Newsletter/Newsletter'
-import PopularPosts from '../PopularPosts/PopularPosts'
 import htmlToText from 'html-react-parser'
 import Spinner from '../Loading/Spinner'
 

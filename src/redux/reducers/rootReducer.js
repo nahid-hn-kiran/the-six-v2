@@ -22,6 +22,7 @@ import {
   getLoggedInUser,
   loginUserReducer,
   registerUserReducer,
+  updateUserRolereducer,
 } from './userReducer'
 import { addCategoryReducer, getCategoriesReducer } from './categoryReducer'
 import { addTagReducer, getTagsReducer } from './tagReducer'
@@ -34,6 +35,7 @@ const rootReducer = combineReducers({
   loggedInUser: getLoggedInUser,
   allUsers: getAllUserReducer,
   allAdmins: getAllAdminReducer,
+  updateUserRole: updateUserRolereducer,
   firstTwoArticle: firstTwoArticleReducer,
   eightArticles: eightArticlesReducer,
   twoArticleBottom: twoArticleBottom,

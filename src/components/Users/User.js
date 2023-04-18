@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const User = ({ user, index }) => {
+const User = ({ user, index, makeAdmin, removeAdmin }) => {
   return (
     <tr>
       <th>{index + 1}</th>
@@ -23,9 +23,23 @@ const User = ({ user, index }) => {
       <td className='text-white'>
         <button className='bg-red-600 px-2 rounded mx-2'>block</button>
         {user?.role === 'admin' ? (
-          <button className='bg-red-600 px-2 rounded mx-2'>remove admin</button>
+          <>
+            <button
+              className='bg-red-600 px-2 rounded mx-2'
+              onClick={() => removeAdmin(user?._id, 'user')}
+            >
+              remove admin
+            </button>
+          </>
         ) : (
-          <button className='bg-green-500 px-2 rounded mx-2'>make admin</button>
+          <>
+            <button
+              className='bg-green-500 px-2 rounded mx-2'
+              onClick={() => makeAdmin(user?._id, 'admin')}
+            >
+              make admin
+            </button>
+          </>
         )}
       </td>
     </tr>

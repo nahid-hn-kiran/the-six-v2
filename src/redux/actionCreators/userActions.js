@@ -16,6 +16,9 @@ import {
   REGISTER_USER_FAIL,
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
+  UDPATE_USER_ROLE_FAIL,
+  UDPATE_USER_ROLE_REQUIEST,
+  UDPATE_USER_ROLE_SUCCESS,
 } from '../actionTypes/actionTypes'
 import axios from 'axios'
 
@@ -137,8 +140,15 @@ export const getAllUsers = () => async (dispatch) => {
 export const getAllAdmins = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_ADMIN_REQUIEST })
+    const token = localStorage.getItem('token')
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
     const { data } = await axios.get(
-      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/users/admin'
+      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/users/admin',
+      config
     )
     dispatch({
       type: ALL_ADMIN_SUCCESS,
@@ -147,6 +157,38 @@ export const getAllAdmins = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: ALL_ADMIN_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+export const updateUserRole = (id, role) => async (dispatch) => {
+  try {
+    dispatch({ type: UDPATE_USER_ROLE_REQUIEST })
+    const updatedRole = {
+      id,
+      role,
+    }
+    const token = localStorage.getItem('token')
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+    await axios.put(
+      `https://tame-pear-vulture-kilt.cyclic.app/api/v1/users/update-user`,
+      updatedRole,
+      config
+    )
+    dispatch({
+      type: UDPATE_USER_ROLE_SUCCESS,
+    })
+  } catch (error) {
+    dispatch({
+      type: UDPATE_USER_ROLE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

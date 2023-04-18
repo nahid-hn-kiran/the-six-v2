@@ -11,7 +11,7 @@ const PopularPosts = ({ articles }) => {
           {articles?.data?.map((article) => (
             <div className='flex gap-4' key={article._id}>
               <div className='flex gap-3 text-sm'>
-                <Link to='/'>
+                <Link to={`/article/${article?._id}`}>
                   <img
                     src={article?.thumbnail}
                     alt={article?.title}
@@ -21,7 +21,10 @@ const PopularPosts = ({ articles }) => {
               </div>
               <div className='flex flex-col gap-2'>
                 <div>
-                  <Link to='/' className='font-bold text-blue-600'>
+                  <Link
+                    to={`/article/${article?._id}`}
+                    className='font-bold text-blue-600'
+                  >
                     {article?.title}
                   </Link>
                 </div>

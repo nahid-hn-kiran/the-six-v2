@@ -58,10 +58,10 @@ const Login = () => {
               />
               <p className='text-red-600 my-3'>{!success && message}</p>
               <label className='label'>
-                <sm>Admin: nahidhasan2g@gmail.com</sm>
+                <small>Admin: nahidhasan2g@gmail.com</small>
               </label>
               <label>
-                <sm>Admin pass: hasan1234@A</sm>
+                <small>Admin pass: hasan1234@A</small>
               </label>
             </div>
             {loading && <Spinner />}

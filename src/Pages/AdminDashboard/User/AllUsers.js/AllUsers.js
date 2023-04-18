@@ -3,14 +3,28 @@ import { useDispatch, useSelector } from 'react-redux'
 import DashboardContentHeader from '../../../../components/DashboardContentHeader/DashboardContentHeader'
 import Loading from '../../../../components/Loading/Loading'
 import User from '../../../../components/Users/User'
-import { getAllUsers } from '../../../../redux/actionCreators/userActions'
+import {
+  getAllUsers,
+  updateUserRole,
+} from '../../../../redux/actionCreators/userActions'
 
 const AllUsers = () => {
+  const {
+    loading: makeAdminLoading,
+    success,
+    message: makeAdminMessage,
+  } = useSelector((state) => state.updateUserRole)
+
   const { loading, users, message } = useSelector((state) => state.allUsers)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getAllUsers())
-  }, [])
+  }, [dispatch, success])
+
+  const makeAdmin = (id, role) => {
+    dispatch(updateUserRole(id, role))
+  }
+
   if (loading) {
     return <Loading />
   }
@@ -36,7 +50,12 @@ const AllUsers = () => {
           <tbody>
             {message && <p className='text-red-600'>{message}</p>}
             {users?.users?.map((user, index) => (
-              <User user={user} key={user._id} index={index} />
+              <User
+                user={user}
+                key={user._id}
+                index={index}
+                makeAdmin={makeAdmin}
+              />
             ))}
           </tbody>
         </table>
