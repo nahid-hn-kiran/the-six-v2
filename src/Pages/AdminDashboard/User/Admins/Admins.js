@@ -7,6 +7,7 @@ import {
   getAllAdmins,
   updateUserRole,
 } from '../../../../redux/actionCreators/userActions'
+import { toast } from 'react-hot-toast'
 
 const Admins = () => {
   const {
@@ -28,6 +29,9 @@ const Admins = () => {
 
   if (loading) {
     return <Loading />
+  }
+  if (success) {
+    toast('Sucessfully removed')
   }
   return (
     <div>

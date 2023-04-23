@@ -1,5 +1,6 @@
 import { RouterProvider } from 'react-router-dom'
 import './App.css'
+import { Toaster } from 'react-hot-toast'
 import Login from './Pages/Login/Login/Login'
 import Register from './Pages/Login/Register/Register'
 import router from './Routes/Routes'
@@ -12,6 +13,7 @@ function App() {
       <RouterProvider router={router} />
       <Login />
       <Register />
+      <Toaster />
     </Provider>
   )
 }

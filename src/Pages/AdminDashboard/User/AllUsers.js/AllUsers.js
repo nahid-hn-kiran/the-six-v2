@@ -7,6 +7,7 @@ import {
   getAllUsers,
   updateUserRole,
 } from '../../../../redux/actionCreators/userActions'
+import { toast } from 'react-hot-toast'
 
 const AllUsers = () => {
   const {
@@ -29,6 +30,9 @@ const AllUsers = () => {
 
   if (loading) {
     return <Loading />
+  }
+  if (success) {
+    toast('Sucessfully added')
   }
   return (
     <div>
