@@ -21,7 +21,9 @@ const Admins = () => {
   }, [dispatch, success])
 
   const removeAdmin = (id, role) => {
-    dispatch(updateUserRole(id, role))
+    if (window.confirm('Are you sure')) {
+      dispatch(updateUserRole(id, role))
+    }
   }
 
   if (loading) {

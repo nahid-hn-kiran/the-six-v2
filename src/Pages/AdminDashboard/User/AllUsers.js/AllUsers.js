@@ -22,7 +22,9 @@ const AllUsers = () => {
   }, [dispatch, success])
 
   const makeAdmin = (id, role) => {
-    dispatch(updateUserRole(id, role))
+    if (window.confirm('Are you sure')) {
+      dispatch(updateUserRole(id, role))
+    }
   }
 
   if (loading) {
