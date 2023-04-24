@@ -30,6 +30,7 @@ const Football = () => {
       <div className='lg:col-span-2'>
         <div className='border-t-8 border-indigo-700'>
           <h2 className='text-2xl my-3 ml-2'>Football News</h2>
+          <p className='text-red-600 m-auto'>{error ? error : ''}</p>
           <>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
               {articles?.data?.map((article) => (
