@@ -1,10 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import Sidebar from '../Home/Sidebar/Sidebar'
+import NewsCard from '../../components/cards/NewsCard'
+import Loading from '../../components/Loading/Loading'
 
 const Football = () => {
+  const [articles, setArticles] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
+  useEffect(() => {
+    const getArticles = async () => {
+      try {
+        const { data } = await axios.get(
+          'http://localhost:5000/api/v1/articles/football'
+        )
+        setArticles(data)
+        setLoading(false)
+      } catch (error) {
+        setError(`Couldn't load article!`)
+      }
+    }
+    getArticles()
+  }, [])
+  if (loading) {
+    return <Loading />
+  }
   return (
-    <div>
-      <h2>Coming soon</h2>
-    </div>
+    <section className='grid grid-cols-1 lg:grid-cols-3 container my-5 gap-5'>
+      <div className='lg:col-span-2'>
+        <div className='border-t-8 border-indigo-700'>
+          <h2 className='text-2xl my-3 ml-2'>Football News</h2>
+          <>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+              {articles?.data?.map((article) => (
+                <NewsCard key={article._id} article={article} />
+              ))}
+            </div>
+          </>
+        </div>
+      </div>
+      <div>
+        <Sidebar />
+      </div>
+    </section>
   )
 }
 
