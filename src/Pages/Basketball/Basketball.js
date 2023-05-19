@@ -12,7 +12,7 @@ const Basketball = () => {
     const getArticles = async () => {
       try {
         const { data } = await axios.get(
-          'http://localhost:5000/api/v1/articles/basketball'
+          'https://tame-pear-vulture-kilt.cyclic.app/api/v1/articles/basketball'
         )
         setArticles(data)
         setLoading(false)

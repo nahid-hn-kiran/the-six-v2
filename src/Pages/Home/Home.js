@@ -1,73 +1,49 @@
-import React, { useEffect } from 'react'
-import FeaturedSlider from './FeatredSlilder/FeaturedSlider'
-import HeroSlider from './HeroSlider/HeroSlider'
-import News from './News/News'
-import ScheduleSlider from './ScheduleSlider/ScheduleSlider'
-import Sidebar from './Sidebar/Sidebar'
-import { useDispatch, useSelector } from 'react-redux'
-import Loading from '../../components/Loading/Loading'
+import React, { useEffect } from 'react';
+import FeaturedSlider from './FeatredSlilder/FeaturedSlider';
+import HeroSlider from './HeroSlider/HeroSlider';
+import News from './News/News';
+import Sidebar from './Sidebar/Sidebar';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   getEightArticles,
   getFeaturedArticles,
   getFirstTwoArticle,
   getTwoArticleBottom,
-} from '../../redux/actionCreators/articleActions'
-import { getHeroslider } from '../../redux/actionCreators/sliderActions'
-import { getUpcomingMatches } from '../../redux/actionCreators/upcomingMatchesActions'
+} from '../../redux/actionCreators/articleActions';
+import { getHeroslider } from '../../redux/actionCreators/sliderActions';
+import { getUpcomingMatches } from '../../redux/actionCreators/upcomingMatchesActions';
 
 const Home = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const {
-    loading: heroSliderLoading,
-    data: heroSlider,
-    message: heroSliderMessage,
-  } = useSelector((state) => state.heroSlider)
+  const { data: heroSlider, message: heroSliderMessage } = useSelector(
+    (state) => state.heroSlider
+  );
   useEffect(() => {
-    dispatch(getHeroslider())
-  }, [dispatch])
-
-  const {
-    loading: scheduleLoading,
-    data: scheduleData,
-    message: scheduleMessage,
-  } = useSelector((state) => state.upcomingMatches)
+    dispatch(getHeroslider());
+  }, [dispatch]);
   useEffect(() => {
-    dispatch(getUpcomingMatches())
-  }, [dispatch])
+    dispatch(getUpcomingMatches());
+  }, [dispatch]);
 
-  const { loading: articlLoading, data: articles } = useSelector(
-    (state) => state.featuredArticles
-  )
+  const { data: articles } = useSelector((state) => state.featuredArticles);
 
   useEffect(() => {
-    dispatch(getFeaturedArticles())
-  }, [dispatch])
+    dispatch(getFeaturedArticles());
+  }, [dispatch]);
 
-  const { loading: firstTwoArticleLoading, data: firstTwoArticle } =
-    useSelector((state) => state.firstTwoArticle)
-  const { loading: bottomTwoArticleLoading, data: bottomTwoData } = useSelector(
+  const { data: firstTwoArticle } = useSelector(
+    (state) => state.firstTwoArticle
+  );
+  const { data: bottomTwoData } = useSelector(
     (state) => state.twoArticleBottom
-  )
-  const { loading: eightArticleLoading, data: eightData } = useSelector(
-    (state) => state.eightArticles
-  )
+  );
+  const { data: eightData } = useSelector((state) => state.eightArticles);
   useEffect(() => {
-    dispatch(getFirstTwoArticle())
-    dispatch(getEightArticles())
-    dispatch(getTwoArticleBottom())
-  }, [dispatch])
-
-  if (
-    articlLoading ||
-    firstTwoArticleLoading ||
-    bottomTwoArticleLoading ||
-    eightArticleLoading ||
-    heroSliderLoading ||
-    scheduleLoading
-  ) {
-    return <Loading />
-  }
+    dispatch(getFirstTwoArticle());
+    dispatch(getEightArticles());
+    dispatch(getTwoArticleBottom());
+  }, [dispatch]);
   return (
     <div>
       <HeroSlider data={heroSlider} message={heroSliderMessage} />
@@ -90,7 +66,7 @@ const Home = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
