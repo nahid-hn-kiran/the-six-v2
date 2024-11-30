@@ -17,7 +17,7 @@ export const subscribeNewsletter = (userData) => async (dispatch) => {
       },
     };
     await axios.post(
-      "http://localhost:5000/api/v1/newsletter",
+      "https://the-six-server-alpha.vercel.app/api/v1/newsletter",
       userData,
       config
     );
@@ -36,7 +36,9 @@ export const subscribeNewsletter = (userData) => async (dispatch) => {
 export const getNewsletterSubscribers = () => async (dispatch) => {
   try {
     dispatch({ type: NEWSlETTER_SUBSCRIBERS_REQUIEST });
-    const { data } = await axios.get("http://localhost:5000/api/v1/newsletter");
+    const { data } = await axios.get(
+      "https://the-six-server-alpha.vercel.app/api/v1/newsletter"
+    );
     dispatch({ type: NEWSlETTER_SUBSCRIBERS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

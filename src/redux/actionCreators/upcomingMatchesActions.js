@@ -9,7 +9,7 @@ export const getUpcomingMatches = () => async (dispatch) => {
   try {
     dispatch({ type: UPCOMING_MATCHES_REQUIEST });
     const { data } = await axios.get(
-      "http://localhost:5000/api/v1/upcoming-matches"
+      "https://the-six-server-alpha.vercel.app/api/v1/upcoming-matches"
     );
     dispatch({ type: UPCOMING_MATCHES_SUCCESS, payload: data });
   } catch (error) {

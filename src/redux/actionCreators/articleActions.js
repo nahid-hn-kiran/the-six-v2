@@ -35,7 +35,11 @@ export const addArticle = (article) => async (dispatch) => {
         Authorization: `Bearer ${token}`,
       },
     };
-    await axios.post(`http://localhost:5000/api/v1/articles`, article, config);
+    await axios.post(
+      `https://the-six-server-alpha.vercel.app/api/v1/articles`,
+      article,
+      config
+    );
     dispatch({ type: ADD_NEW_ARTICLE_SUCCESS, payload: true });
   } catch (error) {
     dispatch({
@@ -51,7 +55,9 @@ export const addArticle = (article) => async (dispatch) => {
 export const getAllArticles = () => async (dispatch) => {
   try {
     dispatch({ type: GET_ALL_ARTICLE_REQUEST });
-    const { data } = await axios.get("http://localhost:5000/api/v1/articles");
+    const { data } = await axios.get(
+      "https://the-six-server-alpha.vercel.app/api/v1/articles"
+    );
     dispatch({ type: GET_ALL_ARTICLE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -68,7 +74,7 @@ export const getFirstTwoArticle = () => async (dispatch) => {
   try {
     dispatch({ type: FIRST_TWO_ARTICLE_REQUEST });
     const { data } = await axios.get(
-      "http://localhost:5000/api/v1/articles/getfirsttwo"
+      "https://the-six-server-alpha.vercel.app/api/v1/articles/getfirsttwo"
     );
     dispatch({ type: FIRST_TWO_ARTICLE_SUCCESS, payload: data });
   } catch (error) {
@@ -86,7 +92,7 @@ export const getEightArticles = () => async (dispatch) => {
   try {
     dispatch({ type: EIGHT_ARTICLES_REQUEST });
     const { data } = await axios.get(
-      "http://localhost:5000/api/v1/articles/get-eight-articles"
+      "https://the-six-server-alpha.vercel.app/api/v1/articles/get-eight-articles"
     );
     dispatch({ type: EIGHT_ARTICLES_SUCCESS, payload: data });
   } catch (error) {
@@ -104,7 +110,7 @@ export const getTwoArticleBottom = () => async (dispatch) => {
   try {
     dispatch({ type: TWO_ARTICLES_BOTTOM_REQUEST });
     const { data } = await axios.get(
-      "http://localhost:5000/api/v1/articles/get-two-articles-bottom"
+      "https://the-six-server-alpha.vercel.app/api/v1/articles/get-two-articles-bottom"
     );
     dispatch({ type: TWO_ARTICLES_BOTTOM_SUCCESS, payload: data });
   } catch (error) {
@@ -121,7 +127,7 @@ export const getFeaturedArticles = () => async (dispatch) => {
   try {
     dispatch({ type: FEATURED_ARTICLES_REQUEST });
     const { data } = await axios.get(
-      "http://localhost:5000/api/v1/articles/featured-article"
+      "https://the-six-server-alpha.vercel.app/api/v1/articles/featured-article"
     );
     dispatch({ type: FEATURED_ARTICLES_SUCCESS, payload: data });
   } catch (error) {
@@ -139,7 +145,7 @@ export const getArticleById = (articleId) => async (dispatch) => {
   try {
     dispatch({ type: ARTICLE_BY_ID_REQUIEST });
     const { data } = await axios.get(
-      `http://localhost:5000/api/v1/articles/${articleId}`
+      `https://the-six-server-alpha.vercel.app/api/v1/articles/${articleId}`
     );
     dispatch({ type: ARTICLE_BY_ID_SUCCESS, payload: data });
   } catch (error) {
@@ -164,7 +170,7 @@ export const postComment = (articleId, comment) => async (dispatch) => {
       },
     };
     await axios.post(
-      `http://localhost:5000/api/v1/articles/${articleId}/comment`,
+      `https://the-six-server-alpha.vercel.app/api/v1/articles/${articleId}/comment`,
       comment,
       config
     );

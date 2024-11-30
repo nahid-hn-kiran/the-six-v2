@@ -12,7 +12,7 @@ const Basketball = () => {
     const getArticles = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:5000/api/v1/articles/basketball"
+          "https://the-six-server-alpha.vercel.app/api/v1/articles/basketball"
         );
         setArticles(data);
         setLoading(false);

@@ -16,7 +16,11 @@ export const addTag = (tag) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    await axios.post("http://localhost:5000/api/v1/tag", tag, config);
+    await axios.post(
+      "https://the-six-server-alpha.vercel.app/api/v1/tag",
+      tag,
+      config
+    );
     dispatch({
       type: ADD_TAG_SUCCESS,
     });
@@ -34,7 +38,9 @@ export const addTag = (tag) => async (dispatch) => {
 export const getTags = () => async (dispatch) => {
   try {
     dispatch({ type: GET_TAGS_REQUIEST });
-    const { data } = await axios.get("http://localhost:5000/api/v1/tag");
+    const { data } = await axios.get(
+      "https://the-six-server-alpha.vercel.app/api/v1/tag"
+    );
     dispatch({
       type: GET_TAGS_SUCCESS,
       payload: data,
