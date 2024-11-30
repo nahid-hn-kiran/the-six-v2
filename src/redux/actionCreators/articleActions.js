@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "axios";
 import {
   ADD_NEW_ARTICLE_FAIL,
   ADD_NEW_ARTICLE_REQUEST,
@@ -24,23 +24,19 @@ import {
   TWO_ARTICLES_BOTTOM_FAIL,
   TWO_ARTICLES_BOTTOM_REQUEST,
   TWO_ARTICLES_BOTTOM_SUCCESS,
-} from '../actionTypes/actionTypes'
+} from "../actionTypes/actionTypes";
 
 export const addArticle = (article) => async (dispatch) => {
   try {
-    dispatch({ type: ADD_NEW_ARTICLE_REQUEST })
-    const token = localStorage.getItem('token')
+    dispatch({ type: ADD_NEW_ARTICLE_REQUEST });
+    const token = localStorage.getItem("token");
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    }
-    await axios.post(
-      `https://tame-pear-vulture-kilt.cyclic.app/api/v1/articles`,
-      article,
-      config
-    )
-    dispatch({ type: ADD_NEW_ARTICLE_SUCCESS, payload: true })
+    };
+    await axios.post(`http://localhost:5000/api/v1/articles`, article, config);
+    dispatch({ type: ADD_NEW_ARTICLE_SUCCESS, payload: true });
   } catch (error) {
     dispatch({
       type: ADD_NEW_ARTICLE_FAIL,
@@ -48,17 +44,15 @@ export const addArticle = (article) => async (dispatch) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message,
-    })
+    });
   }
-}
+};
 
 export const getAllArticles = () => async (dispatch) => {
   try {
-    dispatch({ type: GET_ALL_ARTICLE_REQUEST })
-    const { data } = await axios.get(
-      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/articles'
-    )
-    dispatch({ type: GET_ALL_ARTICLE_SUCCESS, payload: data })
+    dispatch({ type: GET_ALL_ARTICLE_REQUEST });
+    const { data } = await axios.get("http://localhost:5000/api/v1/articles");
+    dispatch({ type: GET_ALL_ARTICLE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
       type: GET_ALL_ARTICLE_FAIL,
@@ -66,17 +60,17 @@ export const getAllArticles = () => async (dispatch) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message,
-    })
+    });
   }
-}
+};
 
 export const getFirstTwoArticle = () => async (dispatch) => {
   try {
-    dispatch({ type: FIRST_TWO_ARTICLE_REQUEST })
+    dispatch({ type: FIRST_TWO_ARTICLE_REQUEST });
     const { data } = await axios.get(
-      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/articles/getfirsttwo'
-    )
-    dispatch({ type: FIRST_TWO_ARTICLE_SUCCESS, payload: data })
+      "http://localhost:5000/api/v1/articles/getfirsttwo"
+    );
+    dispatch({ type: FIRST_TWO_ARTICLE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
       type: FIRST_TWO_ARTICLE_FAIL,
@@ -84,17 +78,17 @@ export const getFirstTwoArticle = () => async (dispatch) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message,
-    })
+    });
   }
-}
+};
 
 export const getEightArticles = () => async (dispatch) => {
   try {
-    dispatch({ type: EIGHT_ARTICLES_REQUEST })
+    dispatch({ type: EIGHT_ARTICLES_REQUEST });
     const { data } = await axios.get(
-      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/articles/get-eight-articles'
-    )
-    dispatch({ type: EIGHT_ARTICLES_SUCCESS, payload: data })
+      "http://localhost:5000/api/v1/articles/get-eight-articles"
+    );
+    dispatch({ type: EIGHT_ARTICLES_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
       type: EIGHT_ARTICLES_FAIL,
@@ -102,17 +96,17 @@ export const getEightArticles = () => async (dispatch) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message,
-    })
+    });
   }
-}
+};
 
 export const getTwoArticleBottom = () => async (dispatch) => {
   try {
-    dispatch({ type: TWO_ARTICLES_BOTTOM_REQUEST })
+    dispatch({ type: TWO_ARTICLES_BOTTOM_REQUEST });
     const { data } = await axios.get(
-      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/articles/get-two-articles-bottom'
-    )
-    dispatch({ type: TWO_ARTICLES_BOTTOM_SUCCESS, payload: data })
+      "http://localhost:5000/api/v1/articles/get-two-articles-bottom"
+    );
+    dispatch({ type: TWO_ARTICLES_BOTTOM_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
       type: TWO_ARTICLES_BOTTOM_FAIL,
@@ -120,16 +114,16 @@ export const getTwoArticleBottom = () => async (dispatch) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message,
-    })
+    });
   }
-}
+};
 export const getFeaturedArticles = () => async (dispatch) => {
   try {
-    dispatch({ type: FEATURED_ARTICLES_REQUEST })
+    dispatch({ type: FEATURED_ARTICLES_REQUEST });
     const { data } = await axios.get(
-      'https://tame-pear-vulture-kilt.cyclic.app/api/v1/articles/featured-article'
-    )
-    dispatch({ type: FEATURED_ARTICLES_SUCCESS, payload: data })
+      "http://localhost:5000/api/v1/articles/featured-article"
+    );
+    dispatch({ type: FEATURED_ARTICLES_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
       type: FEATURED_ARTICLES_FAIL,
@@ -137,17 +131,17 @@ export const getFeaturedArticles = () => async (dispatch) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message,
-    })
+    });
   }
-}
+};
 
 export const getArticleById = (articleId) => async (dispatch) => {
   try {
-    dispatch({ type: ARTICLE_BY_ID_REQUIEST })
+    dispatch({ type: ARTICLE_BY_ID_REQUIEST });
     const { data } = await axios.get(
-      `https://tame-pear-vulture-kilt.cyclic.app/api/v1/articles/${articleId}`
-    )
-    dispatch({ type: ARTICLE_BY_ID_SUCCESS, payload: data })
+      `http://localhost:5000/api/v1/articles/${articleId}`
+    );
+    dispatch({ type: ARTICLE_BY_ID_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
       type: ARTICLE_BY_ID_FAIL,
@@ -155,26 +149,26 @@ export const getArticleById = (articleId) => async (dispatch) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message,
-    })
+    });
   }
-}
+};
 
 export const postComment = (articleId, comment) => async (dispatch) => {
   try {
-    dispatch({ type: POST_COMMENT_REQUIEST })
-    const token = localStorage.getItem('token')
+    dispatch({ type: POST_COMMENT_REQUIEST });
+    const token = localStorage.getItem("token");
     const config = {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-    }
+    };
     await axios.post(
-      `https://tame-pear-vulture-kilt.cyclic.app/api/v1/articles/${articleId}/comment`,
+      `http://localhost:5000/api/v1/articles/${articleId}/comment`,
       comment,
       config
-    )
-    dispatch({ type: POST_COMMENT_SUCCESS, payload: true })
+    );
+    dispatch({ type: POST_COMMENT_SUCCESS, payload: true });
   } catch (error) {
     dispatch({
       type: POST_COMMENT_FAIL,
@@ -182,6 +176,6 @@ export const postComment = (articleId, comment) => async (dispatch) => {
         error.response && error.response.data.message
           ? error.response.data.message
           : error.message,
-    })
+    });
   }
-}
+};
